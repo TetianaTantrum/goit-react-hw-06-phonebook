@@ -46,11 +46,11 @@ export const contactsInitialState = [
 ];
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: contactsInitialState,
+  initialState: { items: contactsInitialState },
   reducers: {
     addContact: {
       reducer: (state, action) => {
-        state.push(action.payload);
+        state.items.push(action.payload);
       },
       prepare: values => {
         return {
@@ -63,14 +63,13 @@ export const contactsSlice = createSlice({
       },
     },
     removeContact(state, action) {
-      return state.filter(contact => contact.id !== action.payload);
+      return state.items.filter(contact => contact.id !== action.payload);
     },
   },
 });
 const persistConfig = {
   key: 'contacts',
   storage,
-  whitelist: ['contacts'],
 };
 export const contactsReducer = persistReducer(
   persistConfig,
