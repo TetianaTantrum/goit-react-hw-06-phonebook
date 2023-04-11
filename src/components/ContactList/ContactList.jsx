@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import ContactListItem from './ContactListItem';
 import { ContactListUl, Contact, Text } from './ContactList.styled';
 import { useSelector } from 'react-redux';
@@ -19,12 +19,12 @@ const ContactList = () => {
     </ContactListUl>
   );
 };
-// ContactList.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-//   onDelete: PropTypes.func.isRequired,
-// };
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
 export default ContactList;
